@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this data, please cite it as below and link https://privacy-pill-consent-studio.lovable.app/research/eu-cookie-consent-2026."
+type: dataset
+title: "How EU websites handle cookie consent in 2026"
+abstract: "We scanned 300 public homepages in the Netherlands, Germany, France, Italy and Spain (news sites, online shops, government, software companies and local businesses) with the same checks as our free scanner. These are the totals: which sites show a consent banner, what loads before anyone clicks, how Google Consent Mode v2 is set up and which consent tools sites use. No site is named. Licence CC BY 4.0. Not legal advice."
+authors:
+  - name: "Kalmwerk"
+    website: "https://privacy-pill-consent-studio.lovable.app"
+    email: "kalmwerk@gmail.com"
+version: "2026.11"
+date-released: 2026-11-20
+license: CC-BY-4.0
+url: "https://privacy-pill-consent-studio.lovable.app/research/eu-cookie-consent-2026"
+repository: "https://github.com/kalmwerk/eu-cookie-consent-2026"
+repository-artifact: "https://github.com/kalmwerk/eu-cookie-consent-2026/releases/download/v2026.11/eu-cookie-consent-2026.csv"
+keywords:
+  - "cookie consent"
+  - "cookie banner"
+  - "GDPR"
+  - "ePrivacy"
+  - "Google Consent Mode v2"
+  - "consent management platform"
+  - "trackers before consent"

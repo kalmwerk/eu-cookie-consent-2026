@@ -1,0 +1,207 @@
+{
+  "$schema": "https://datapackage.org/profiles/2.0/datapackage.json",
+  "name": "eu-cookie-consent-2026",
+  "id": "https://github.com/kalmwerk/eu-cookie-consent-2026",
+  "title": "How EU websites handle cookie consent in 2026",
+  "description": "We scanned 300 public homepages in the Netherlands, Germany, France, Italy and Spain (news sites, online shops, government, software companies and local businesses) with the same checks as our free scanner. These are the totals: which sites show a consent banner, what loads before anyone clicks, how Google Consent Mode v2 is set up and which consent tools sites use. No site is named. Method, charts and limitations: https://privacy-pill-consent-studio.lovable.app/research/eu-cookie-consent-2026",
+  "version": "2026.11",
+  "created": "2026-11-20T00:00:00Z",
+  "homepage": "https://privacy-pill-consent-studio.lovable.app/research/eu-cookie-consent-2026",
+  "keywords": [
+    "cookie consent",
+    "cookie banner",
+    "GDPR",
+    "ePrivacy",
+    "Google Consent Mode v2",
+    "consent management platform",
+    "trackers before consent"
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0 International"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "Kalmwerk",
+      "path": "https://privacy-pill-consent-studio.lovable.app",
+      "email": "kalmwerk@gmail.com",
+      "roles": [
+        "creator",
+        "publisher"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "title": "Chrome UX Report country top lists, October 2026 (crux-top-lists)",
+      "path": "https://github.com/zakird/crux-top-lists"
+    },
+    {
+      "title": "Wikidata (instance of, industry, country, official website)",
+      "path": "https://www.wikidata.org/"
+    },
+    {
+      "title": "OpenStreetMap data © OpenStreetMap contributors (ODbL), via Geofabrik and BBBike extracts",
+      "path": "https://www.openstreetmap.org/copyright"
+    },
+    {
+      "title": "RFC 9309: Robots Exclusion Protocol",
+      "path": "https://www.rfc-editor.org/rfc/rfc9309"
+    }
+  ],
+  "resources": [
+    {
+      "name": "eu-cookie-consent-2026",
+      "type": "table",
+      "path": "data/eu-cookie-consent-2026.csv",
+      "title": "How EU websites handle cookie consent in 2026: aggregates",
+      "description": "One row per metric, group and answer for the 300 homepages scanned on 20 November 2026, with the count, its base, the share and its 95% Wilson interval. Same file as https://privacy-pill-consent-studio.lovable.app/research/eu-cookie-consent-2026.csv.",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "bytes": 23022,
+      "hash": "sha256:44730125100d8a292d5e48ed5553f41ec6ffea9d84a68926a02235fb6725931a",
+      "licenses": [
+        {
+          "name": "CC-BY-4.0",
+          "path": "https://creativecommons.org/licenses/by/4.0/",
+          "title": "Creative Commons Attribution 4.0 International"
+        }
+      ],
+      "dialect": {
+        "header": true,
+        "delimiter": ",",
+        "quoteChar": "\"",
+        "lineTerminator": "\n"
+      },
+      "schema": {
+        "fields": [
+          {
+            "name": "metric",
+            "type": "string",
+            "description": "What is counted; see the metrics table.",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "banner",
+                "no_banner_but_consent_needed",
+                "no_banner_but_marketing_tracker",
+                "first_layer_reject",
+                "pre_consent",
+                "marketing_tracker_confirmed_before_consent",
+                "analytics_tracker_confirmed_before_consent",
+                "consent_cookie_on_first_response",
+                "could_not_confirm",
+                "low_confidence",
+                "google_tag",
+                "consent_mode_default",
+                "consent_mode_default_after_google_tag",
+                "consent_tool",
+                "tracker_confirmed_before_consent"
+              ]
+            }
+          },
+          {
+            "name": "dimension",
+            "type": "string",
+            "description": "How the sites are grouped: all, country or category (type of site).",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "all",
+                "country",
+                "category"
+              ]
+            }
+          },
+          {
+            "name": "group",
+            "type": "string",
+            "description": "The group: all; a country (nl, de, fr, it, es); or a type of site (news, ecommerce, government, saas, local).",
+            "constraints": {
+              "required": true,
+              "enum": [
+                "all",
+                "nl",
+                "de",
+                "fr",
+                "it",
+                "es",
+                "news",
+                "ecommerce",
+                "government",
+                "saas",
+                "local"
+              ]
+            }
+          },
+          {
+            "name": "answer",
+            "type": "string",
+            "description": "The answer counted, such as tool, own or none; a tool or tracker name for consent_tool and tracker_confirmed_before_consent.",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "sites",
+            "type": "integer",
+            "description": "Sites with that answer.",
+            "constraints": {
+              "required": true,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "base",
+            "type": "integer",
+            "description": "Sites the share is of.",
+            "constraints": {
+              "required": true,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "share_pct",
+            "type": "number",
+            "description": "sites / base in percent, one decimal.",
+            "constraints": {
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "ci95_low_pct",
+            "type": "number",
+            "description": "Lower end of the 95% Wilson score interval, in percent.",
+            "constraints": {
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "ci95_high_pct",
+            "type": "number",
+            "description": "Upper end of the 95% Wilson score interval, in percent.",
+            "constraints": {
+              "minimum": 0,
+              "maximum": 100
+            }
+          }
+        ],
+        "primaryKey": [
+          "metric",
+          "dimension",
+          "group",
+          "answer"
+        ],
+        "missingValues": [
+          ""
+        ]
+      }
+    }
+  ]
+}
